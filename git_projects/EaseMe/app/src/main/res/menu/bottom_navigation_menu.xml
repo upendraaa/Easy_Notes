@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/equities"
+        android:icon="@android:drawable/ic_menu_help"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/markets"
+        android:icon="@android:drawable/ic_menu_more"
+        android:title="@string/more" />
+    <item
+        android:id="@+id/watchlist"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:title="@string/setting" />
+</menu>

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.d4static.easeme.R
 
 private const val ARG_PARAM1 = "param1"
@@ -39,6 +40,11 @@ class WelcomeFragment : Fragment() {
 
     override fun onDetach() {
         super.onDetach()
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        view!!.findNavController().navigate(R.id.signUpFragment)
     }
 
     companion object {
