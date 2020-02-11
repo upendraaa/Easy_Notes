@@ -4,10 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.d4static.easeme.database.Note
 import com.d4static.easeme.database.User
 import com.d4static.easeme.database.UserDao
 
-@Database(entities = arrayOf(User::class), version = 1)
+@Database(entities = arrayOf(User::class, Note::class), version = 1)
 abstract class ApplicationDatabase : RoomDatabase() {
 
     abstract fun UserDao(): UserDao;
