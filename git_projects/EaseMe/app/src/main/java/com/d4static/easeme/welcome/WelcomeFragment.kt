@@ -44,7 +44,7 @@ class WelcomeFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        view!!.findNavController().navigate(R.id.signUpFragment)
+        view!!.findNavController().navigate(R.id.homeFragment)
     }
 
     companion object {
