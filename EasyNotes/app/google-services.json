@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "837378770860",
+    "firebase_url": "https://easy-notes-2020.firebaseio.com",
+    "project_id": "easy-notes-2020",
+    "storage_bucket": "easy-notes-2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:837378770860:android:7b6fc093624deacce35c09",
+        "android_client_info": {
+          "package_name": "d4static.dev999.easynotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "837378770860-go0dkd55q8nu3br3ajrfeaqqkp04nbpu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkrFc4kfyMzwjtuRFiV613LEWo52vzBBw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "837378770860-go0dkd55q8nu3br3ajrfeaqqkp04nbpu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

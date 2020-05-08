@@ -18,7 +18,4 @@ interface NoteDao {
     fun insertNoteData(noteTable: NoteTable): Completable;
 
 
-    fun deleteAllNotes()
-
-
 }

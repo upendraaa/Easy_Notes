@@ -1,3 +1,8 @@
 package d4static.dev999.easynotes.ui.main
 
-data class NoteModel(var id:Int,var title:String,var message:String ){}
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
+data class NoteModel(@PrimaryKey var id: Int, var title: String, var message: String) {}
+
