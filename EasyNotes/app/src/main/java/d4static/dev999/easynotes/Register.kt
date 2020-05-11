@@ -44,7 +44,20 @@ class Register : AppCompatActivity() {
             if (resultCode == Activity.RESULT_OK) {
                 // Successfully signed in
                 val user = FirebaseAuth.getInstance().currentUser
-                // ...
+
+
+                val email = user!!.email
+                val mobile = user.phoneNumber
+                val name = user.displayName
+                val photoUri = user.photoUrl
+
+                startActivity(
+                    Intent(
+                        this,
+                        MainActivity::class.java
+                    )
+                )
+
             } else {
                 // Sign in failed. If response is null the user canceled the
                 // sign-in flow using the back button. Otherwise check
