@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/screen1"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:title="Screen 1" />
+    <item
+        android:id="@+id/screen2"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:title="Screen 2" />
+    <item
+        android:id="@+id/screen3"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:title="Screen 2" />
+    <item
+        android:id="@+id/screen4"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:title="Screen 2" />
+</menu>
