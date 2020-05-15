@@ -3,16 +3,20 @@ package d4static.dev999.easynotes
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
+import d4static.dev999.easynotes.base.BaseActivity
+import d4static.dev999.easynotes.dashboard.DashboardActivity
+import kotlinx.android.synthetic.main.layout_appbar.*
 
-class Register : AppCompatActivity() {
+class Register : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+        setSupportActionBar(toolbar)
+        toolbar.setTitle("Register")
     }
 
     override fun onStart() {
@@ -54,7 +58,7 @@ class Register : AppCompatActivity() {
                 startActivity(
                     Intent(
                         this,
-                        MainActivity::class.java
+                        DashboardActivity::class.java
                     )
                 )
 

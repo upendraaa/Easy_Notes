@@ -3,10 +3,12 @@ package d4static.dev999.easynotes.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import d4static.dev999.easynotes.R
 import d4static.dev999.easynotes.databinding.DashboardListItemBinding
 import d4static.dev999.easynotes.model.DashboardItem
+import kotlinx.android.synthetic.main.dashboard_list_item.view.*
 
 class DashboardItemAdapter : RecyclerView.Adapter<DashboardItemAdapter.DashboardViewHolder>() {
 
@@ -19,23 +21,29 @@ class DashboardItemAdapter : RecyclerView.Adapter<DashboardItemAdapter.Dashboard
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DashboardViewHolder {
 
-        binding = DashboardListItemBinding.bind(
-            LayoutInflater.from(parent.context).inflate(R.layout.dashboard_list_item, parent)
-        )
-
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        binding = DataBindingUtil.inflate(
+            LayoutInflater.from(parent.getContext()),
+            R.layout.dashboard_list_item, parent, false
+        );
+        return DashboardViewHolder(binding.root)
     }
 
     override fun getItemCount(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return itemList.size
     }
 
     override fun onBindViewHolder(holder: DashboardViewHolder, position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        holder.tvTitle.setText(itemList.get(position).name)
+        holder.ivIcon.setImageResource(itemList.get(position).imageId)
     }
 
 
     class DashboardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+        var tvTitle = itemView.tvTitle;
+        var ivIcon = itemView.ivImage;
+
 
     }
 

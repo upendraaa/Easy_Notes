@@ -5,5 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".Register">
 
+    <include layout="@layout/layout_appbar"></include>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
