@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/dashBoardFragment">
+
+    <fragment
+        android:id="@+id/dashBoardFragment"
+        android:name="d4static.dev999.easynotes.dashboard.DashBoardFragment"
+        android:label="DashBoardFragment">
+        <action
+            android:id="@+id/action_dashBoardFragment_to_noteListFragment"
+            app:destination="@id/noteListFragment" />
+        <action
+            android:id="@+id/action_dashBoardFragment_to_bankListFragment"
+            app:destination="@id/bankListFragment" />
+        <action
+            android:id="@+id/action_dashBoardFragment_to_cardListFragment"
+            app:destination="@id/cardListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNoteFragment"
+        android:name="d4static.dev999.easynotes.fragments.AddNoteFragment"
+        android:label="fragment_add_note"
+        tools:layout="@layout/fragment_add_note" />
+    <fragment
+        android:id="@+id/noteListFragment"
+        android:name="d4static.dev999.easynotes.fragments.NoteListFragment"
+        android:label="fragment_note_list"
+        tools:layout="@layout/fragment_note_list">
+        <action
+            android:id="@+id/action_noteListFragment_to_noteDetailFragment"
+            app:destination="@id/noteDetailFragment" />
+        <action
+            android:id="@+id/action_noteListFragment_to_addNoteFragment"
+            app:destination="@id/addNoteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCardFragment"
+        android:name="d4static.dev999.easynotes.fragments.AddCardFragment"
+        android:label="fragment_add_card"
+        tools:layout="@layout/fragment_add_card" />
+    <fragment
+        android:id="@+id/cardDetailFragment"
+        android:name="d4static.dev999.easynotes.fragments.CardDetailFragment"
+        android:label="fragment_card_detail"
+        tools:layout="@layout/fragment_card_detail" />
+    <fragment
+        android:id="@+id/cardListFragment"
+        android:name="d4static.dev999.easynotes.fragments.CardListFragment"
+        android:label="fragment_card_list"
+        tools:layout="@layout/fragment_card_list">
+        <action
+            android:id="@+id/action_cardListFragment_to_cardDetailFragment"
+            app:destination="@id/cardDetailFragment" />
+        <action
+            android:id="@+id/action_cardListFragment_to_addCardFragment"
+            app:destination="@id/addCardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteDetailFragment"
+        android:name="d4static.dev999.easynotes.fragments.NoteDetailFragment"
+        android:label="fragment_note_detail"
+        tools:layout="@layout/fragment_note_detail" />
+    <fragment
+        android:id="@+id/bankListFragment"
+        android:name="d4static.dev999.easynotes.fragments.BankListFragment"
+        android:label="fragment_bank_list"
+        tools:layout="@layout/fragment_bank_list">
+        <action
+            android:id="@+id/action_bankListFragment_to_addBankFragment"
+            app:destination="@id/addBankFragment" />
+        <action
+            android:id="@+id/action_bankListFragment_to_bankDetailFragment"
+            app:destination="@id/bankDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addBankFragment"
+        android:name="d4static.dev999.easynotes.fragments.AddBankFragment"
+        android:label="fragment_add_bank"
+        tools:layout="@layout/fragment_add_bank" />
+    <fragment
+        android:id="@+id/bankDetailFragment"
+        android:name="d4static.dev999.easynotes.fragments.BankDetailFragment"
+        android:label="fragment_bank_detail"
+        tools:layout="@layout/fragment_bank_detail" />
+</navigation>

@@ -19,7 +19,9 @@ class DashboardActivity : BaseActivity(),
         loadFragment(DashBoardFragment())
         supportActionBar!!.setTitle("Dashboard")
         supportActionBar!!.setDisplayHomeAsUpEnabled(true);
-        supportActionBar!!.setDisplayShowHomeEnabled(true); }
+        supportActionBar!!.setDisplayShowHomeEnabled(true);
+
+    }
 
     override fun onNavigationItemReselected(item: MenuItem) {
         var fragment: Fragment? = null
@@ -35,11 +37,22 @@ class DashboardActivity : BaseActivity(),
     }
 
     private fun loadFragment(fragment: Fragment?) { //switching fragment
-        if (fragment != null) {
-            supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.fragment_container, fragment)
-                .commit()
+        /*  if (fragment != null) {
+              supportFragmentManager
+                  .beginTransaction()
+                  .replace(R.id.fragment_container, fragment)
+                  .commit()
+          }*/
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                // API 5+ solution
+                onBackPressed()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 

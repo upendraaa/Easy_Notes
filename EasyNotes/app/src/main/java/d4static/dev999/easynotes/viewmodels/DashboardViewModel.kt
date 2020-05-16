@@ -1,4 +1,4 @@
-package d4static.dev999.easynotes.dashboard
+package d4static.dev999.easynotes.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import d4static.dev999.easynotes.R

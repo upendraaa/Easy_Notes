@@ -48,6 +48,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:17.1.2'
     implementation 'com.google.firebase:firebase-auth:16.0.5'
     implementation 'com.google.firebase:firebase-core:16.0.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "com.google.dagger:dagger-compiler:2.16"
     compileOnly "org.glassfish:javax.annotation:3.1.1"
 
@@ -67,6 +68,12 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.firebaseui:firebase-ui-auth:6.2.0'
     implementation 'com.google.android.material:material:1.2.0-alpha01'
+
+
+    // Kotlin  For navigation graph
+    def nav_version = "2.3.0-alpha06"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
 
 }

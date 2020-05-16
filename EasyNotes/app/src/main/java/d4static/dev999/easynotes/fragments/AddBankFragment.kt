@@ -1,4 +1,4 @@
-package d4static.dev999.easynotes.dashboard
+package d4static.dev999.easynotes.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -7,31 +7,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import d4static.dev999.easynotes.R
-import d4static.dev999.easynotes.adapter.DashboardItemAdapter
 import d4static.dev999.easynotes.base.BaseFragment
-import d4static.dev999.easynotes.databinding.FragmentDashboardLayoutBinding
-import d4static.dev999.easynotes.model.DashboardItem
-import d4static.dev999.easynotes.viewmodels.DashboardViewModel
+import d4static.dev999.easynotes.databinding.FragmentAddBankBinding
+import d4static.dev999.easynotes.viewmodels.AddBankFragmentViewModel
 
-private const val ARG_PARAM = "param"
-private const val TAG = "DashBoardFragment"
+private const val ARG_PARAM_BANK = "param_bank"
+private const val TAG = "AddBankFragment"
 
-private lateinit var binding: FragmentDashboardLayoutBinding
-private lateinit var viewModel: DashboardViewModel
+lateinit var binding: FragmentAddBankBinding
+lateinit var viewModel: AddBankFragmentViewModel
 
 
-class DashBoardFragment : BaseFragment() {
+class AddBankFragment : BaseFragment() {
     private var param_notes: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param_notes = it.getString(ARG_PARAM)
+            param_notes = it.getString(ARG_PARAM_BANK)
         }
 
         Log.d(TAG, "OnCreate called")
@@ -41,15 +37,8 @@ class DashBoardFragment : BaseFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_dashboard_layout, container, false)
-        viewModel = ViewModelProviders.of(this).get(DashboardViewModel::class.java)
-        viewModel.init("Dashboard")
-        viewModel.mutableLiveData.observe(viewLifecycleOwner, Observer {
-            setAdapter(it)
-        })
-
-
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_add_bank, container, false)
+        viewModel = ViewModelProviders.of(this).get(AddBankFragmentViewModel::class.java)
         setView();
         return binding.root
     }
@@ -65,29 +54,13 @@ class DashBoardFragment : BaseFragment() {
         }
     }
 
-    lateinit var dashBoardAdapter: DashboardItemAdapter
-    fun setAdapter(items: ArrayList<DashboardItem>) {
-
-        dashBoardAdapter = DashboardItemAdapter()
-        dashBoardAdapter.updateItem(items)
-
-        binding.recycleView.apply {
-            // use this setting to improve performance if you know that changes
-            // in content do not change the layout size of the RecyclerView
-            setHasFixedSize(true)
-            layoutManager = GridLayoutManager(activity, 3)
-            adapter = dashBoardAdapter
-
-        }
-    }
-
 
     companion object {
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            DashBoardFragment().apply {
+            AddBankFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM, param1)
+                    putString(ARG_PARAM_BANK, param1)
                 }
             }
     }
