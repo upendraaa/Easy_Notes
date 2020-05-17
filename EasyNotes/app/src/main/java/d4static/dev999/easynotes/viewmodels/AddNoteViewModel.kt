@@ -3,6 +3,7 @@ package d4static.dev999.easynotes.viewmodels
 import androidx.lifecycle.MutableLiveData
 import d4static.dev999.easynotes.base.BaseViewModel
 import d4static.dev999.easynotes.model.ListItemModel
+import java.util.*
 
 class AddNoteViewModel : BaseViewModel() {
 
@@ -15,7 +16,10 @@ class AddNoteViewModel : BaseViewModel() {
 
 
     fun setDashboardItems() {
-        var listItem = ListItemModel(1, "Title 1", "SubTitle 1", "", false, "")
+        var listItem = ListItemModel(
+            1, "Title 1", "SubTitle 1", "",
+            false, "", Date()
+        )
 
         mutableLiveData = MutableLiveData()
         mutableLiveData.value = listItem

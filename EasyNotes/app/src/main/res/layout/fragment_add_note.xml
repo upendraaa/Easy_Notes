@@ -19,12 +19,15 @@
                 android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/edit_height"
-                android:backgroundTint="@color/colorAccent"
-                android:textColorHint="@color/colorPrimary"
                 app:errorEnabled="true"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:hint="@string/title"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_goneMarginEnd="@dimen/margin_small"
-                app:layout_goneMarginStart="@dimen/margin_small"
+                android:theme="@style/TextInputLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_goneMarginTop="@dimen/margin_small">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -35,14 +38,16 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tvBody"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/edit_height"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/margin_small"
                 android:layout_marginTop="@dimen/margin_small"
-                android:backgroundTint="@color/colorAccent"
-                android:textColorHint="@color/colorPrimary"
+                android:hint="@string/body"
+                android:theme="@style/TextInputLayout"
                 app:errorEnabled="true"
                 app:layout_constraintEnd_toEndOf="@id/tvTitle"
                 app:layout_constraintStart_toStartOf="@id/tvTitle"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvTitle">
 
                 <com.google.android.material.textfield.TextInputEditText
