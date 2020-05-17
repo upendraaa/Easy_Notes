@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import d4static.dev999.easynotes.R
 import d4static.dev999.easynotes.adapter.DashboardItemAdapter
 import d4static.dev999.easynotes.base.BaseFragment
+import d4static.dev999.easynotes.callback.OnItemClickListener
 import d4static.dev999.easynotes.databinding.FragmentDashboardLayoutBinding
 import d4static.dev999.easynotes.model.DashboardItem
 import d4static.dev999.easynotes.viewmodels.DashboardViewModel
@@ -25,7 +26,7 @@ private lateinit var binding: FragmentDashboardLayoutBinding
 private lateinit var viewModel: DashboardViewModel
 
 
-class DashBoardFragment : BaseFragment() {
+class DashBoardFragment : BaseFragment(), OnItemClickListener {
     private var param_notes: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,7 +69,7 @@ class DashBoardFragment : BaseFragment() {
     lateinit var dashBoardAdapter: DashboardItemAdapter
     fun setAdapter(items: ArrayList<DashboardItem>) {
 
-        dashBoardAdapter = DashboardItemAdapter()
+        dashBoardAdapter = DashboardItemAdapter(this)
         dashBoardAdapter.updateItem(items)
 
         binding.recycleView.apply {
@@ -129,6 +130,20 @@ class DashBoardFragment : BaseFragment() {
         Log.d(TAG, "onStart called")
 
     }
+
+    override fun onItemClick(obj: Any?, view: View?) {
+
+        navigate(requireView(), R.id.noteListFragment)
+    }
+
+    override fun onLongClick(obj: Any?, view: View?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onItemSelected(obj: Any?, view: View?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
 
 
 }

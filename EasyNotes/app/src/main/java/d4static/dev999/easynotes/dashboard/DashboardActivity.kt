@@ -48,12 +48,18 @@ class DashboardActivity : BaseActivity(),
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                // API 5+ solution
-                onBackPressed()
-                true
+                if (supportFragmentManager.backStackEntryCount > 0)
+                    supportFragmentManager.popBackStack();
+                return true;
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        if (supportFragmentManager.backStackEntryCount > 0)
+            supportFragmentManager.popBackStack();
+        return true;
     }
 
 }

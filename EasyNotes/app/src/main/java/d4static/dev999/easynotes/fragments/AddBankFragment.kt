@@ -17,8 +17,8 @@ import d4static.dev999.easynotes.viewmodels.AddBankFragmentViewModel
 private const val ARG_PARAM_BANK = "param_bank"
 private const val TAG = "AddBankFragment"
 
-lateinit var binding: FragmentAddBankBinding
-lateinit var viewModel: AddBankFragmentViewModel
+private lateinit var binding: FragmentAddBankBinding
+private lateinit var viewModel: AddBankFragmentViewModel
 
 
 class AddBankFragment : BaseFragment() {
