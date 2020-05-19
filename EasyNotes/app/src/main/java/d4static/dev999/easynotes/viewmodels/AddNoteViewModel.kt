@@ -17,7 +17,7 @@ class AddNoteViewModel : BaseViewModel() {
 
     fun setDashboardItems() {
         var listItem = ListItemModel(
-            1, "Title 1", "SubTitle 1", "",
+            1, "Title 1", "SubTitle 1", "","",
             false, "", Date()
         )
 

@@ -18,7 +18,7 @@ class AddBankViewModel : BaseViewModel() {
     fun setDashboardItems() {
         var listItem = ListItemModel(
             1, "Title 1",
-            "SubTitle 1", "", false, "", Date()
+            "SubTitle 1", "","", false, "", Date()
         )
 
         mutableLiveData = MutableLiveData()
