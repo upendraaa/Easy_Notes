@@ -6,14 +6,17 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import d4static.dev999.easynotes.R
 import d4static.dev999.easynotes.base.BaseFragment
+import d4static.dev999.easynotes.callback.OnServerResponseListener
 import d4static.dev999.easynotes.databinding.FragmentAddNoteBinding
 import d4static.dev999.easynotes.model.ListItemModel
+import d4static.dev999.easynotes.model.NoteFsModel
 import d4static.dev999.easynotes.viewmodels.AddNoteViewModel
 
 private const val ARG_PARAM = "param"
@@ -23,7 +26,7 @@ private lateinit var binding: FragmentAddNoteBinding
 private lateinit var viewModel: AddNoteViewModel
 
 
-class AddNoteFragment : BaseFragment() {
+class AddNoteFragment : BaseFragment(), OnServerResponseListener {
     private var param_notes: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -80,10 +83,12 @@ class AddNoteFragment : BaseFragment() {
     }
 
     override fun onPositiveClick(view: View, obj: Any) {
-        view.findNavController().navigate(R.id.bankListFragment)
+        viewModel.setDataWithDocument(obj as NoteFsModel)
     }
 
     override fun onNegativeClick(view: View, obj: Any) {
+        view.findNavController().navigate(R.id.bankListFragment)
+
     }
 
     override fun onAttach(context: Context) {
@@ -115,6 +120,13 @@ class AddNoteFragment : BaseFragment() {
         super.onStart()
         Log.d(TAG, "onStart called")
 
+    }
+
+    override fun onSuccessListener(obj: ArrayList<Any>?) {
+        Toast.makeText(requireContext(), "Data added successfully!", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onFailureListener(obj: Any) {
     }
 
 

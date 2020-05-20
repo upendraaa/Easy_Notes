@@ -19,22 +19,24 @@ class NoteListViewModel : BaseViewModel() {
     fun setDashboardItems() {
         var listItems = ArrayList<ListItemModel>()
         var listItem = ListItemModel(1, "Title 1", "SubTitle 1","",
-            "", false, "", Date()
+            "", false, "", Date(), Date()
         )
         listItems.add(listItem)
         listItem = ListItemModel(1, "Title 1","SubTitle 1", "","",
-            false, "", Date()
+            false, "", Date(), Date()
         )
         listItems.add(listItem)
         listItem = ListItemModel(1, "Title 1", "SubTitle 1","",
-            "", true, "",Date())
+            "", true, "", Date(), Date()
+        )
         listItems.add(listItem)
         listItem = ListItemModel(1, "Title 1", "SubTitle 1", "","",
-            true, "", Date()
+            true, "", Date(), Date()
         )
         listItems.add(listItem)
         listItem = ListItemModel(1, "Title 1", "SubTitle 1", "",
-            "", false, "",Date())
+            "", false, "", Date(), Date()
+        )
         listItems.add(listItem)
 
         mutableLiveData = MutableLiveData()
