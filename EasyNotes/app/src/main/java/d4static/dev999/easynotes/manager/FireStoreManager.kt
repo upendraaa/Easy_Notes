@@ -12,13 +12,13 @@ object FireStoreManager {
     private const val DOC_USER = "user"
     private const val COLLECTION_BANKS = "banks"
     private const val COLLECTION_NOTES = "notes"
-    private lateinit var db: FirebaseFirestore
+    private var db: FirebaseFirestore? = null
 
 
     fun getDB(): FirebaseFirestore {
         if (db == null)
             db = Firebase.firestore
-        return db;
+        return db as FirebaseFirestore;
     }
 
     fun getUserDoc(): DocumentReference {

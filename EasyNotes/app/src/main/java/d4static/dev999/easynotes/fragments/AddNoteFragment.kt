@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
+import com.google.firebase.Timestamp
 import d4static.dev999.easynotes.R
 import d4static.dev999.easynotes.base.BaseFragment
 import d4static.dev999.easynotes.callback.OnServerResponseListener
@@ -59,7 +60,12 @@ class AddNoteFragment : BaseFragment(), OnServerResponseListener {
         showToolbar();
         showView(binding.layoutbutton.btnLayout)
         binding.layoutbutton.btnPositive.setOnClickListener {
-            onPositiveClick(it, "")
+
+            var noteFsModel = NoteFsModel(
+                binding.tvTitle.editText!!.text.toString(), null,
+                binding.tvBody.editText!!.text.toString(), Timestamp.now(), Timestamp.now()
+            )
+            onPositiveClick(it, noteFsModel)
         }
         binding.layoutbutton.btnNegative.setOnClickListener {
             onNegativeClick(it, "")

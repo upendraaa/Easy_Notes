@@ -3,6 +3,7 @@
     package="d4static.dev999.easynotes">
 
     <application
+        android:name=".EasyNotesApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcherr"
         android:label="@string/app_name"

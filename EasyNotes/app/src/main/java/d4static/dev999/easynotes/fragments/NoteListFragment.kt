@@ -72,6 +72,10 @@ class NoteListFragment : BaseFragment(), OnItemClickListener {
             adapter = notesAdapter
 
         }
+
+        binding.btnAdd.setOnClickListener {
+            navigate(it, R.id.addNoteFragment)
+        }
     }
 
 

@@ -1,15 +1,19 @@
 package d4static.dev999.easynotes.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.firestore.FieldValue
 import d4static.dev999.easynotes.base.BaseViewModel
 import d4static.dev999.easynotes.callback.OnServerResponseListener
 import d4static.dev999.easynotes.manager.FireStoreManager
+import d4static.dev999.easynotes.manager.PreferenceManager
 import d4static.dev999.easynotes.model.ListItemModel
 import d4static.dev999.easynotes.model.NoteFsModel
 import java.util.*
 
 class AddNoteViewModel : BaseViewModel() {
+
+    val TAG = "AddNoteViewModel"
 
     lateinit var mutableLiveData: MutableLiveData<ListItemModel>
     lateinit var onServerResponseListener: OnServerResponseListener
@@ -36,11 +40,17 @@ class AddNoteViewModel : BaseViewModel() {
 
     fun setDataWithDocument(noteFsModel: NoteFsModel) {
 
-        FireStoreManager.getNotesCollection().document("userNotes")
+
+        FireStoreManager.getNotesCollection().document(
+            PreferenceManager.getPreference().getData(
+                PreferenceManager.USER_ID, String, "user"
+            ) as String
+        )
             .update("data", FieldValue.arrayUnion(noteFsModel)).addOnSuccessListener {
 
             onServerResponseListener.onSuccessListener(null)
         }.addOnFailureListener {
+                Log.v(TAG, it.message!!.toString())
 
         }
     }

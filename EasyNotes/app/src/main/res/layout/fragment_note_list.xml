@@ -24,6 +24,17 @@
 
             </androidx.recyclerview.widget.RecyclerView>
 
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btnAdd"
+                android:layout_width="@dimen/icon_height"
+                android:layout_height="@dimen/icon_height"
+                android:layout_margin="@dimen/margin_small"
+                android:src="@android:drawable/btn_plus"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
+
+            </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

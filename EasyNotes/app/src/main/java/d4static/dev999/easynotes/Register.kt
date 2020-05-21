@@ -8,6 +8,7 @@ import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
 import d4static.dev999.easynotes.base.BaseActivity
 import d4static.dev999.easynotes.dashboard.DashboardActivity
+import d4static.dev999.easynotes.manager.PreferenceManager
 import kotlinx.android.synthetic.main.layout_appbar.*
 
 class Register : BaseActivity() {
@@ -54,6 +55,12 @@ class Register : BaseActivity() {
                 val mobile = user.phoneNumber
                 val name = user.displayName
                 val photoUri = user.photoUrl
+                val userId = user.uid
+                PreferenceManager.getPreference().setData(PreferenceManager.USER_ID, userId)
+                PreferenceManager.getPreference().setData(PreferenceManager.EMAIL_ID, email)
+                PreferenceManager.getPreference().setData(PreferenceManager.MOBILE_NUMBER, mobile)
+
+
 
                 startActivity(
                     Intent(
