@@ -22,7 +22,8 @@ class Register : BaseActivity() {
 
     override fun onStart() {
         super.onStart()
-        // Choose authentication providers
+        startDashboardActivity();
+        /*// Choose authentication providers
         val providers = arrayListOf(
             AuthUI.IdpConfig.EmailBuilder().build(),
             AuthUI.IdpConfig.PhoneBuilder().build(),
@@ -36,7 +37,7 @@ class Register : BaseActivity() {
                 .setAvailableProviders(providers)
                 .build(),
             RC_SIGN_IN
-        )
+        )*/
     }
 
     // [START auth_fui_result]
@@ -61,13 +62,8 @@ class Register : BaseActivity() {
                 PreferenceManager.getPreference().setData(PreferenceManager.MOBILE_NUMBER, mobile)
 
 
+              startDashboardActivity();
 
-                startActivity(
-                    Intent(
-                        this,
-                        DashboardActivity::class.java
-                    )
-                )
 
             } else {
                 // Sign in failed. If response is null the user canceled the
@@ -130,6 +126,15 @@ class Register : BaseActivity() {
             RC_SIGN_IN
         )
         // [END auth_fui_pp_tos]
+    }
+
+    fun startDashboardActivity(){
+        startActivity(
+            Intent(
+                this,
+                DashboardActivity::class.java
+            )
+        )
     }
 
     companion object {

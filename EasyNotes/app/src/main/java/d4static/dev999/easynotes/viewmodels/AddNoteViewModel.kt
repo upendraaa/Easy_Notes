@@ -38,6 +38,8 @@ class AddNoteViewModel : BaseViewModel() {
         mutableLiveData.value = listItem
     }
 
+
+
     fun setDataWithDocument(noteFsModel: NoteFsModel) {
 
 
