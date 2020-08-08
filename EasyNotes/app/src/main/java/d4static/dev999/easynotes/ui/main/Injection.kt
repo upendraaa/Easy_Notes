@@ -1,6 +1,7 @@
 package d4static.dev999.easynotes.ui.main
 
 import android.content.Context
+import d4static.dev999.easynotes.dao.NoteDao
 
 object Injection {
 

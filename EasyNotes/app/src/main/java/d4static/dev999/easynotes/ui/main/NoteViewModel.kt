@@ -1,6 +1,7 @@
 package d4static.dev999.easynotes.ui.main
 
 import androidx.lifecycle.ViewModel
+import d4static.dev999.easynotes.dao.NoteDao
 import io.reactivex.Completable
 import io.reactivex.Flowable
 

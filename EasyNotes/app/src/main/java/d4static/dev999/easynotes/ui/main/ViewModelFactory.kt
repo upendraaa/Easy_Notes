@@ -2,6 +2,7 @@ package d4static.dev999.easynotes.ui.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import d4static.dev999.easynotes.dao.NoteDao
 
 /**
  * Factory for ViewModels

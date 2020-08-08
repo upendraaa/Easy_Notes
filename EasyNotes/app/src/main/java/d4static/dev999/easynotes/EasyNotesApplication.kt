@@ -2,7 +2,9 @@ package d4static.dev999.easynotes
 
 import android.app.Application
 import android.content.Context
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class EasyNotesApplication : Application() {
 
     init {

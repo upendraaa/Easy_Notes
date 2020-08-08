@@ -1,9 +1,10 @@
-package d4static.dev999.easynotes.ui.main
+package d4static.dev999.easynotes.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import d4static.dev999.easynotes.ui.main.NoteTable
 import io.reactivex.Completable
 import io.reactivex.Flowable
 
@@ -16,6 +17,9 @@ interface NoteDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertNoteData(noteTable: NoteTable): Completable;
+
+    @Query("DELETE from NoteTable")
+    fun cleanTable()
 
 
 }

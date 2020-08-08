@@ -18,6 +18,7 @@ import d4static.dev999.easynotes.callback.OnItemClickListener
 import d4static.dev999.easynotes.databinding.FragmentDashboardLayoutBinding
 import d4static.dev999.easynotes.model.DashboardItem
 import d4static.dev999.easynotes.viewmodels.DashboardViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 private const val ARG_PARAM = "param"
 private const val TAG = "DashBoardFragment"
@@ -25,7 +26,7 @@ private const val TAG = "DashBoardFragment"
 private lateinit var binding: FragmentDashboardLayoutBinding
 private lateinit var viewModel: DashboardViewModel
 
-
+@AndroidEntryPoint
 class DashBoardFragment : BaseFragment(), OnItemClickListener {
     private var param_notes: String? = null
 

@@ -9,8 +9,10 @@ import com.google.firebase.auth.FirebaseAuth
 import d4static.dev999.easynotes.base.BaseActivity
 import d4static.dev999.easynotes.dashboard.DashboardActivity
 import d4static.dev999.easynotes.manager.PreferenceManager
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.layout_appbar.*
 
+@AndroidEntryPoint
 class Register : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,7 +64,7 @@ class Register : BaseActivity() {
                 PreferenceManager.getPreference().setData(PreferenceManager.MOBILE_NUMBER, mobile)
 
 
-              startDashboardActivity();
+                startDashboardActivity();
 
 
             } else {

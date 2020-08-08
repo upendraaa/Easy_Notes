@@ -6,9 +6,10 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import d4static.dev999.easynotes.R
 import d4static.dev999.easynotes.base.BaseActivity
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.layout_appbar.*
 
-
+@AndroidEntryPoint
 class DashboardActivity : BaseActivity(),
     BottomNavigationView.OnNavigationItemReselectedListener {
 

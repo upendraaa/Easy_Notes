@@ -18,6 +18,7 @@ import d4static.dev999.easynotes.callback.OnItemClickListener
 import d4static.dev999.easynotes.databinding.FragmentNoteListBinding
 import d4static.dev999.easynotes.model.ListItemModel
 import d4static.dev999.easynotes.viewmodels.NoteListViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 private const val ARG_PARAM = "param"
 private const val TAG = "NoteListFragment"
@@ -25,7 +26,7 @@ private const val TAG = "NoteListFragment"
 private lateinit var binding: FragmentNoteListBinding
 private lateinit var viewModel: NoteListViewModel
 
-
+@AndroidEntryPoint
 class NoteListFragment : BaseFragment(), OnItemClickListener {
     private var param_notes: String? = null
 
