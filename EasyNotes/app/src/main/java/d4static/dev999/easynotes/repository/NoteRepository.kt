@@ -11,7 +11,10 @@ class NoteRepository @Inject constructor(private val noteDao: NoteDao) {
         return noteDao.getAllNotes();
     }
 
-    fun insertNoteData(noteTable: NoteTable): Completable = noteDao.insertNoteData(noteTable)
+    fun insertNoteData(noteTable: NoteTable): Completable {
+        return noteDao.insertNoteData(noteTable)
+    }
+
     fun cleanTable() = noteDao.cleanTable();
 
 }
