@@ -4,7 +4,6 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import d4static.dev999.easynotes.ui.main.NoteTable
-import io.reactivex.Completable
 
 @Dao
 interface NoteDao {
@@ -14,7 +13,7 @@ interface NoteDao {
     fun getAllNotes(): List<NoteTable>;
 
     @Insert
-    fun insertNoteData(noteTable: NoteTable): Completable;
+    fun insertNoteData(noteTable: NoteTable);
 
     @Query("DELETE from NoteTable")
     fun cleanTable()

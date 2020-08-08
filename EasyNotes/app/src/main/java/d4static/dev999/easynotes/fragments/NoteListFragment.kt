@@ -11,12 +11,14 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.Timestamp
 import d4static.dev999.easynotes.R
 import d4static.dev999.easynotes.adapter.NotesAdapter
 import d4static.dev999.easynotes.base.BaseFragment
 import d4static.dev999.easynotes.callback.OnItemClickListener
 import d4static.dev999.easynotes.databinding.FragmentNoteListBinding
 import d4static.dev999.easynotes.model.ListItemModel
+import d4static.dev999.easynotes.model.NoteFsModel
 import d4static.dev999.easynotes.viewmodels.NoteListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -130,7 +132,15 @@ class NoteListFragment : BaseFragment(), OnItemClickListener {
 
     override fun onItemClick(obj: Any?, view: View?) {
         if (view != null) {
-            navigate(view, R.id.addNoteFragment)
+            var listItemModel = obj as ListItemModel;
+            var noteFsModel = NoteFsModel(
+                listItemModel.title, listItemModel.subTitle,
+                listItemModel.body, Timestamp.now(), Timestamp.now()
+            )
+            val bundle = Bundle()
+            bundle.putSerializable("param", noteFsModel)
+            view.findNavController().navigate(R.id.addNoteFragment, bundle)
+            //navigate(view, R.id.addNoteFragment)
         }
     }
 

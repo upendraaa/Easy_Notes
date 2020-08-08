@@ -9,14 +9,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.google.firebase.Timestamp
 import d4static.dev999.easynotes.R
 import d4static.dev999.easynotes.base.BaseFragment
 import d4static.dev999.easynotes.callback.OnServerResponseListener
 import d4static.dev999.easynotes.databinding.FragmentAddNoteBinding
-import d4static.dev999.easynotes.model.ListItemModel
 import d4static.dev999.easynotes.model.NoteFsModel
 import d4static.dev999.easynotes.viewmodels.AddNoteViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,14 +26,16 @@ private lateinit var binding: FragmentAddNoteBinding
 
 @AndroidEntryPoint
 class AddNoteFragment : BaseFragment(), OnServerResponseListener {
-    private var param_notes: String? = null
+    private var param_notes: NoteFsModel? = null
     private val viewModel: AddNoteViewModel by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param_notes = it.getString(ARG_PARAM)
+            if (it.getSerializable(ARG_PARAM) != null) {
+                param_notes = it.getSerializable(ARG_PARAM) as NoteFsModel
+            }
         }
 
         Log.d(TAG, "OnCreate called")
@@ -48,13 +48,13 @@ class AddNoteFragment : BaseFragment(), OnServerResponseListener {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_add_note, container, false)
         viewModel.init("Dashboard")
-        viewModel.mutableLiveData.observe(viewLifecycleOwner, Observer {
-            setData(it)
-        })
-
-
-        setView();
         return binding.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        setData();
+        setView()
     }
 
     fun setView() {
@@ -73,18 +73,18 @@ class AddNoteFragment : BaseFragment(), OnServerResponseListener {
         }
     }
 
-    fun setData(item: ListItemModel) {
-
-
+    fun setData() {
+        binding.tvTitle.editText!!.setText(param_notes!!.title)
+        binding.tvBody.editText!!.setText(param_notes!!.body)
     }
 
 
     companion object {
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(param: NoteFsModel) =
             AddNoteFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM, param1)
+                    putSerializable(ARG_PARAM, param)
                 }
             }
     }

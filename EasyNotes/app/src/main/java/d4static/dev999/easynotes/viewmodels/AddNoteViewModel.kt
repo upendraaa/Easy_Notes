@@ -13,6 +13,7 @@ import d4static.dev999.easynotes.model.ListItemModel
 import d4static.dev999.easynotes.model.NoteFsModel
 import d4static.dev999.easynotes.repository.NoteRepository
 import d4static.dev999.easynotes.ui.main.NoteTable
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.*
 
@@ -97,7 +98,7 @@ class AddNoteViewModel @ViewModelInject constructor(private val noteRepository: 
 
     fun addToDatabase(noteFsModels: ArrayList<NoteFsModel>) {
 
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             for (model in noteFsModels) {
                 var noteTable = NoteTable(0, model.title!!, model.body!!, 0, 1)
                 noteRepository.insertNoteData(noteTable)
