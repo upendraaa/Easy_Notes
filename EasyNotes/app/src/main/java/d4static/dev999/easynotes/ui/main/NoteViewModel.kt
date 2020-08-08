@@ -3,20 +3,11 @@ package d4static.dev999.easynotes.ui.main
 import androidx.lifecycle.ViewModel
 import d4static.dev999.easynotes.dao.NoteDao
 import io.reactivex.Completable
-import io.reactivex.Flowable
 
 class NoteViewModel(private val dataSource: NoteDao) : ViewModel() {
 
 
-    fun getAllNotes(): Flowable<NoteTable> {
-        return dataSource.getAllNotes();
-    }
 
-    fun getAllTitles(): Flowable<String> {
-        return dataSource.getAllNotes().map { noteTable ->
-            noteTable.title
-        }
-    }
 
     fun updateNote(noteTable: NoteTable): Completable {
         return dataSource.insertNoteData(noteTable)

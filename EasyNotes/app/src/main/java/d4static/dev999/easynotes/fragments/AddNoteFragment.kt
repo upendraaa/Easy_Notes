@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.google.firebase.Timestamp
 import d4static.dev999.easynotes.R
@@ -19,16 +19,18 @@ import d4static.dev999.easynotes.databinding.FragmentAddNoteBinding
 import d4static.dev999.easynotes.model.ListItemModel
 import d4static.dev999.easynotes.model.NoteFsModel
 import d4static.dev999.easynotes.viewmodels.AddNoteViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 private const val ARG_PARAM = "param"
 private const val TAG = "AddNoteFragment"
 
 private lateinit var binding: FragmentAddNoteBinding
-private lateinit var viewModel: AddNoteViewModel
 
-
+@AndroidEntryPoint
 class AddNoteFragment : BaseFragment(), OnServerResponseListener {
     private var param_notes: String? = null
+    private val viewModel: AddNoteViewModel by viewModels()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +47,6 @@ class AddNoteFragment : BaseFragment(), OnServerResponseListener {
     ): View? {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_add_note, container, false)
-        viewModel = ViewModelProviders.of(this).get(AddNoteViewModel::class.java)
         viewModel.init("Dashboard")
         viewModel.mutableLiveData.observe(viewLifecycleOwner, Observer {
             setData(it)
@@ -89,7 +90,9 @@ class AddNoteFragment : BaseFragment(), OnServerResponseListener {
     }
 
     override fun onPositiveClick(view: View, obj: Any) {
-        viewModel.setDataWithDocument(obj as NoteFsModel)
+        var list = ArrayList<NoteFsModel>()
+        list.add(obj as NoteFsModel)
+        viewModel.addToDatabase(list)
     }
 
     override fun onNegativeClick(view: View, obj: Any) {

@@ -7,8 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import d4static.dev999.easynotes.R
@@ -24,11 +24,12 @@ private const val ARG_PARAM = "param"
 private const val TAG = "NoteListFragment"
 
 private lateinit var binding: FragmentNoteListBinding
-private lateinit var viewModel: NoteListViewModel
 
 @AndroidEntryPoint
 class NoteListFragment : BaseFragment(), OnItemClickListener {
     private var param_notes: String? = null
+    private val viewModel: NoteListViewModel by viewModels()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +46,6 @@ class NoteListFragment : BaseFragment(), OnItemClickListener {
     ): View? {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_note_list, container, false)
-        viewModel = ViewModelProviders.of(this).get(NoteListViewModel::class.java)
         viewModel.init("NoteList")
         viewModel.mutableLiveData.observe(viewLifecycleOwner, Observer {
             setAdapter(it)

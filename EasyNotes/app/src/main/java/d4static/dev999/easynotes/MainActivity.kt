@@ -3,7 +3,9 @@ package d4static.dev999.easynotes
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import d4static.dev999.easynotes.ui.main.MainFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
 

@@ -6,14 +6,13 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import d4static.dev999.easynotes.ui.main.NoteTable
 import io.reactivex.Completable
-import io.reactivex.Flowable
 
 @Dao
 interface NoteDao {
 
 
     @Query("Select * from NoteTable")
-    fun getAllNotes(): Flowable<NoteTable>;
+    fun getAllNotes(): List<NoteTable>;
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertNoteData(noteTable: NoteTable): Completable;
